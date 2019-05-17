@@ -1,0 +1,67 @@
+body {
+  //Todo lo que van a heredar las clases hijas
+  font-family: "Lato", sans-serif; //Por defecto sera Lato, si no se encuentra  sera sans
+  font-weight: 400;
+  line-height: 1.7; //Es 1.7 veces mas grande de lo normal
+  color: $color-grey-dark;
+}
+
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase; //Mayusculas
+  backface-visibility: hidden; //Trick para evitar la vibracion de las animaciones
+  margin-bottom: 6rem;
+
+  //-- = modificador
+  &--main {
+    display: block; //Block elements ocupan todo el width disponible, crean rompimientos de linea antes y despues, por eso lo usamos para separar los dos textos
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation: moveInLeft 1s ease-out;
+    //NECESARIO definir Cual animacion y tiempo
+  }
+
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.74rem;
+    animation: moveInRight 1s ease-out;
+  }
+}
+
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block; //Asi solo se aplica el color a las letras, no todo el bloque
+  background-image: linear-gradient(
+    to right,
+    $color-primary-light,
+    $color-primary-dark
+  );
+  -webkit-background-clip: text; //Poner background atras de el texto
+  color: transparent; //Color transparente para ver el gradient
+  letter-spacing: 0.2rem;
+  transition: all 0.2;
+
+  &:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+  }
+}
+
+.heading-tertiary {
+  font-size: $default-font-size;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-size: $default-font-size;
+
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}

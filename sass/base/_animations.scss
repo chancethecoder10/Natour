@@ -1,0 +1,45 @@
+//Animations of our project 7-1 pattern
+@keyframes moveInLeft {
+  0% {
+    opacity: 0; //Queremos que al inicio sea invisible
+    transform: translateX(-10rem);
+    //Con esta propiedad corremos el texto de derecha a izquierda
+  }
+
+  80% {
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0); //Devolvemos al estado original
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0; //Queremos que al inicio sea invisible
+    transform: translateX(10rem);
+    //Con esta propiedad corremos el texto de derecha a izquierda
+  }
+
+  80% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0); //Devolvemos al estado original
+  }
+}
+
+@keyframes moveInBottom {
+  //Para dar animacion, el boton aparece de abajo a arriba
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}

@@ -1,0 +1,35 @@
+// BEM / nesting
+.header {
+  height: 95vh; //Decimos que la caja va a ser el 95% del Vieport height
+  //Color y  nivel de opacidad de la foto en direccion de derecha a abajo
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url(../img/hero.jpg);
+  background-size: cover; //La foto se adapta al viewport
+  background-position: top; //La foto se mantiene fija en el top de la pagina y se concentra en enseñar la parte de arriba
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0% 100%);
+  //Hacemos un recorte a la foto, cordenadas sacadas con clippy
+
+  //__ = elemento del header(nesting)
+  &__logo-box {
+    position: absolute;
+    top: 4rem; //Se aleja 40 de arriba y izquierda desde el padre(header)
+    left: 4rem;
+  }
+
+  &__logo {
+    height: 3.5rem; //El witdh se especifica atuomaticamente
+  }
+
+  &__text-box {
+    position: absolute;
+    top: 40%; //Son en relacion al elemento padre
+    left: 50%;
+    transform: translate(-50%, -50%); //Margenes a el y no el padre
+    text-align: center; //Boton tratado como texto, lo alineamos en el centro
+  }
+}

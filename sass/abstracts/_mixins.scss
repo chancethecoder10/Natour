@@ -1,0 +1,7 @@
+@mixin clearfix {
+  &::after {
+    content: ""; //Agrega elemento vacio
+    display: table; //standar version of clearfix
+    clear: both; //clear both floats
+  }
+}

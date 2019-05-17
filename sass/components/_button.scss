@@ -1,0 +1,89 @@
+.btn {
+  //Como se va a ver el boton
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem; //Corta el bloque para dar forma la boton
+    transition: all 0.2s; //Tiempo en aparecer
+    position: relative;
+    font-size: $default-font-size;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+    //Elevacion 3 px y le ponemos sombras
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6); //Definimos cuanto crece en X y en Y
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+    //Al dar click reducimos las sombras y bajamos el boton para dar efecto de hundimiento
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  //Efecto opcional, sirve para dar animacion un antes y un despues
+  //Damos la visualizacion de que el boton se va  y vuelve
+  &::after {
+    content: ""; //SIEMPRE DEFINIR, aun que este vacio
+    display: inline-block; //Damos las mismas propiedades definidas del boton para ponerlo por dentro
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute; //Usamos absolute y el relative lo definimos en el boton
+    top: 0;
+    left: 0;
+    z-index: -1; //Para meter el boton after detras del boton
+    transition: all 0.4s;
+  }
+
+  &--animated {
+    //Creamos esta clase para que la animacion solo se active a este boton
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    //Al final definimos la duracion del delay (0.75)
+    animation-fill-mode: backwards; //Con esto se aplica el keyframe de 0% para que al inicio sea invisible antes del delay
+  }
+  //Termina la animacion del boton opcional
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $color-primary;
+    display: inline-block; //Nos permite hacer padding, margins
+    text-decoration: none;
+    border-bottom: 0.1rem solid $color-primary; //Corta el bloque para dar forma la boton
+    padding: 0.3rem;
+    transition: all 0.2s; //Tiempo en aparecer
+    position: relative;
+  }
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+    transform: translateY(0);
+  }
+}

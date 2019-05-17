@@ -1,0 +1,19 @@
+//Basic definitions of our project
+*,
+*::after,
+*::before {
+  //Selector universal todas las cajas saldran con estas propiedadesy no aumente de mas a las futuras propiedades que demos
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; //Lo sacamos del body, herencia
+}
+
+html {
+  //Define que es 1rem,  10 px
+  font-size: 62.5%; //Lo ponemos en el root para que la pagina cuando sea responsive solo cambiar este font-size y usar rems en las otras propiedades
+}
+body {
+  //Otras propiedades en typography xq lo son
+  box-sizing: border-box;
+  padding: 3rem; //Padding(relleno) 30px a toda la pagina
+}
