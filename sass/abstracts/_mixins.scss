@@ -5,3 +5,53 @@
     clear: both; //clear both floats
   }
 }
+
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// MEDIA QUERY MANAGER
+/*
+0 - 600px :     phone
+600 - 900px:    Tablet portrait
+900 - 1200px:    Tablet landscapes
+[1200 - 1800] is where our normal styles apply
+1800px +:    Big desktop
+
+$breakpoint argument choises
+- phone
+- tab-port
+- tab-land 
+- big-deskptop 
+
+1em = 16px
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) {
+      @content; //We pass the entire block code
+    }
+  }
+
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == big-deskptop {
+    @media (min-width: 112.5) {
+      @content;
+    }
+  }
+}
